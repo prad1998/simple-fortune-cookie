@@ -14,8 +14,12 @@ jobs:
         name: code
         path: .
   
-  tests:
-    name: test the code 
+
+
+
+  tests: 
+    name: test the code
+    needs: Clone-down 
     runs-on: ubuntu-latest 
     steps:
       - name: Test the code  
