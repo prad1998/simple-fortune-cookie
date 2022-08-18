@@ -13,3 +13,10 @@ jobs:
       with:
         name: code
         path: .
+  
+   tests:
+    name: test the code 
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Test the code  
+        run: go test 
