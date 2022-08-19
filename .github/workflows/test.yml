@@ -14,17 +14,32 @@ jobs:
         name: code
         path: .
   
+   build-frontend:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone-down
+        uses: actions/checkout@v2
+      - name: Build frontend
+        run: cd frontend && go build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: frontend
+          path: frontend
 
-  tests: 
-    needs: Clone-down
-    runs-on: ubuntu-latest   
-    container: gradle:6-jdk11
-    steps: 
-      - name: Download code
+    test: 
+    name: "Test frontend"
+    runs-on: ubuntu-latest
+    needs:  'build'   
+    steps:
+      - name: Download build artifact
         uses: actions/download-artifact@v2
         with:
-          name: code
-          path: . 
-
+            name: frontend
+            path: frontend 
       - name: Test the code 
-        run: apt-get install golang -y  && cd frontend && go test
+        run:  cd frontend && go test
+
+
+
