@@ -27,5 +27,4 @@ jobs:
           path: . 
 
       - name: Test the code 
-        run: apt-get install golang -y 
-        run: cd frontend && go test
+        run: apt-get install golang -y  && cd frontend && go test
