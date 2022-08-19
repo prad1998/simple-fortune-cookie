@@ -20,12 +20,12 @@ jobs:
     runs-on: ubuntu-latest   
     container: gradle:6-jdk11
     steps: 
-      - run: sudo apt-get install golang -y
       - name: Download code
         uses: actions/download-artifact@v2
         with:
           name: code
           path: . 
 
-      - name: Test the code  
+      - name: Test the code 
+        run: apt-get install golang -y 
         run: cd frontend && go test
