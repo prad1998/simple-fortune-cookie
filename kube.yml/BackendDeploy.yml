@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend       
+spec:
+  selector:
+    matchLabels:        
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend     
+    spec:
+      containers:
+      - name: backend
+        image: lavansathi/devops-simple-cookie-backend
+        env: 
+          - name: REDIS_DNS
+            value: redis 
