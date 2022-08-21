@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+ 
+ backend:
+  image: lavansathi/devops-simple-cookie-backend
+    
+
+ frontend:
+  image: lavansathi/devops-simple-cookie-frontend
+    
