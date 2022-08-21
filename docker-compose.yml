@@ -1,9 +1,11 @@
-version: '3'
+version: '3.7'
 
 services:
  
  backend:
   image: prad1998/simple-fortune-cookie/backend
+    
 
  frontend:
   image: prad1998/simple-fortune-cookie/frontend
+    
