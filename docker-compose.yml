@@ -1,11 +1,30 @@
 version: '3.7'
 
+
 services:
- 
+
+ redis:
+  image: redis:7.0
+  restart: always
+  command: ["redis-server", "--appendonly", "yes"]
+  ports:
+    - 6379:6379
+  volumes:
+      - ../data/redis:/data
+
  backend:
-  image: lavansathi/devops-simple-cookie-backend
-    
+  image: lavansathi/devops-simple-cookie-backend 
+  ports:
+    - 9000:9000   
+  environment:
+      REDIS_DNS: redis
 
  frontend:
   image: lavansathi/devops-simple-cookie-frontend
-    
+  ports: 
+    - 8080:8080
+  environment:
+    - BACKEND_DNS=backend
+    - BACKEND_PORT=9000
+  depends_on:
+    - backend
