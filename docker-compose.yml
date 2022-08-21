@@ -3,9 +3,9 @@ version: '3.7'
 services:
  
  backend:
-  image: prad1998/simple-fortune-cookie/backend
+  image: lavansathi/devops-simple-cookie-backend
     
 
  frontend:
-  image: prad1998/simple-fortune-cookie/frontend
+  image: lavansathi/devops-simple-cookie-frontend
     
