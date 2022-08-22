@@ -1,0 +1,9 @@
+name: deploy
+on: push
+jobs:
+  deployment:
+    name: "Deploy to Kubernetes"
+    runs-on: [self-hosted]
+    steps:
+      - name: kubernetes
+        run: /home/ubuntu/simple-fortune-cookie/runkube.sh  
